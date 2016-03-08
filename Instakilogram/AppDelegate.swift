@@ -7,14 +7,24 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+
+        //Parse Init
+        Parse.initializeWithConfiguration(ParseClientConfiguration(block: { (configuration:ParseMutableClientConfiguration) -> Void in
+                configuration.applicationId = "inparse"
+                configuration.clientKey = "masterparseappkey"
+                configuration.server = "https://instakilograms.herokuapp.com/parse"
+            })
+            
         // Override point for customization after application launch.
         return true
     }
